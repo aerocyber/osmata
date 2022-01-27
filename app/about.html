@@ -14,7 +14,6 @@
  You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +21,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-    <title>Osmata</title>
+    <title>Osmata: About and Credits</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -129,8 +128,29 @@
     </script>
     <!-- Nav bar done!-->
     <!-- Next comes the body.-->
-    <section class="columns">
-    </section>
+    <div class="block is-grouped has-text-centered">
+        <div class="column">
+            <figure class="image is-64x64 is-inline-block">
+                <img src="img/logo.png">
+            </figure>
+        </div> <br>
+        <div class="column">
+            Version: 1.0.0 <i>Beta</i> <br>
+            Author: aerocyber <br>
+            License: <a href="license.html" class="is-link">GNU AGPL v3</a> <br>
+            Privacy Policy: <a href="privacy.html" class="is-link">Tl;dr Your data is stored <b>on your device.</b></a>
+            <br>
+            Source Code: <span class="icon is-medium"
+                onclick="window.open('https://github.com/aerocyber/osmata', '_blank');">
+                <ion-icon name="logo-github"></ion-icon>
+            </span>
+        </div><br>
+        <div class="column">
+            <a href="https://bulma.io">
+                <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="100" height="60">
+            </a>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -14,7 +14,6 @@
  You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +21,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-    <title>Osmata</title>
+    <title>Osmata: Add Osmation</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -129,8 +128,40 @@
     </script>
     <!-- Nav bar done!-->
     <!-- Next comes the body.-->
-    <section class="columns">
-    </section>
+    <div class="column">
+        <form class="block is-grouped">
+            <div class="field">
+                <span class="label">Name assigned to the url</span>
+                <div class="control">
+                    <input class="input" type="text" placeholder="e.g DuckDuckGo">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">URL</label>
+                <div class="control">
+                    <input class="input" type="url" placeholder="e.g. https://duckduckgo.com">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Categories assigned to the url</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="e.g search privacy-friendly">
+                    <p class="help">Use space to separate categories.</p>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-success">
+                        <span class="icon">
+                            <ion-icon name="checkmark-outline"></ion-icon>
+                        </span> &nbsp;Add Osmation</button>
+                    <button class="button is-danger">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

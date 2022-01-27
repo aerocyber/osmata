@@ -14,7 +14,6 @@
  You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -129,8 +128,39 @@
     </script>
     <!-- Nav bar done!-->
     <!-- Next comes the body.-->
-    <section class="columns">
-    </section>
+    <div class="block">
+        <div class="field is-grouped">
+            <div class="column">
+
+                <span class="block">
+                    Choose the item to be deleted! <br>
+                </span> <br>
+                <div class="select is-danger">
+                    <select id="dropdown">
+                        <option value="Hello">Hello</option>
+                        <option value="World">World</option>
+                    </select>
+                </div>
+                <br> <br>
+                <div class="buttons">
+                    <button class="button is-danger" onclick="testClick();">
+                        <span class="icon">
+                            <ion-icon name="trash"></ion-icon>
+                        </span> &nbsp;
+                        Remove Osmation
+                    </button>
+                    <button class="button">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function testClick() {
+            alert(document.getElementById("dropdown").value)
+        }
+    </script>
 </body>
 
 </html>

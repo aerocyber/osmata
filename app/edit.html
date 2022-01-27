@@ -14,7 +14,6 @@
  You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -129,8 +128,61 @@
     </script>
     <!-- Nav bar done!-->
     <!-- Next comes the body.-->
-    <section class="columns">
-    </section>
+    <form class="column">
+        <div class="field">
+            <p class="control has-icons-left">
+                <span class="select">
+                    <select>
+                        <option selected value="None">None</option>
+                        <option>Select dropdown</option>
+                        <option>With options</option>
+                    </select>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="New name">
+                <span class="icon is-small is-left is-dark">
+                    <ion-icon name="code-slash-outline"></ion-icon>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="url" placeholder="New url">
+                <span class="icon is-small is-left">
+                    <ion-icon name="globe-outline"></ion-icon>
+                </span>
+            </p>
+        </div>
+        Categories (separate them with space please!) <br>
+        <textarea class="textarea is-warning" placeholder="e.g. private"></textarea> <br>
+        <div class="field">
+            <p class="control">
+                <button class="button is-warning" disabled>
+                    <span class="icon">
+                        <ion-icon name="create"></ion-icon>
+                    </span> &nbsp;
+                    Edit Osmation
+                </button>
+                <button class="button">
+                    <span class="icon">
+                        <ion-icon name="cancel"></ion-icon>
+                    </span> &nbsp; Cancel </button>
+
+            </p>
+        </div>
+    </form>
+    <script>
+        $(document).ready(function () {
+            // Get value on button click and show alert
+            $("#edit-approve").click(function () {
+                var name = $("#name").val();
+                alert(name);
+            });
+        });
+    </script>
 </body>
 
 </html>
