@@ -22,6 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <title>Osmata: About and Credits</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -95,7 +96,7 @@
                             </span> &nbsp;
                             Open omio file
                         </a>
-                        <a class="navbar-item" href="settings">
+                        <a class="navbar-item" href="settings.html">
                             <span class="icon">
                                 <ion-icon name="settings"></ion-icon>
                             </span> &nbsp;
@@ -151,6 +152,46 @@
             </a>
         </div>
     </div>
+    <div class="notification is-warning cookie" id="storage-consent">
+        <button class="delete"></button>
+        We do not use cookies. <br>
+        But we use your localStorage and IndexedDB to store your data. <br>
+        The data is not transmitted outside your browser/app unless you do. <br>
+        By clicking <code>I agree</code> or <code>closing this notification</code> <br>you agree to our <a
+            href="privacy.html" target="_blank" rel="noopener noreferrer" class="is-link"> Privacy Policy</a> and <a
+            href="privacy.html#cookieTech" target="_blank" rel="noopener noreferrer" class="is-link">Cookie Policy</a>.
+        <br>
+        <hr>
+        <button class="button is-primary" onclick="agreed();">I agree</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem("StorageConsent") == "Allowed") {
+                var consent = document.getElementById("storage-consent");
+                consent.classList.add("invisible")
+            }
+        });
+        function agreed() {
+            if (localStorage.getItem("StorageConsent") == null) {
+                localStorage.setItem("StorageConsent", "Allowed");
+            }
+            var consent = document.getElementById("storage-consent");
+            consent.classList.add("invisible")
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+                const $notification = $delete.parentNode;
+
+                $delete.addEventListener('click', () => {
+                    if (localStorage.getItem("StorageConsent") == null) {
+                        localStorage.setItem("StorageConsent", "Allowed");
+                    }
+                    $notification.parentNode.removeChild($notification);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

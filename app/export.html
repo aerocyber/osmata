@@ -130,7 +130,42 @@
     </script>
     <!-- Nav bar done!-->
     <!-- Next comes the body.-->
-    <div class="columns">
+    <div class="column">
+        <form class="block is-grouped">
+            <label class="checkbox">
+                <input type="checkbox">
+                Encrypt the exported omio file.
+            </label>
+
+            <div class="field">
+                <label class="label">URL</label>
+                <div class="control">
+                    <input class="input" type="password" disabled placeholder="********">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button class="button is-success">
+                        <span class="icon">
+                            <ion-icon name="cloud-download-outline"></ion-icon>
+                        </span> &nbsp; Export omio file</button>
+                    <button class="button is-danger">Cancel</button>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('input[type="checkbox"]').click(function () {
+                        if ($(this).prop("checked") == true) {
+                            console.log("Checkbox is checked.");
+                        }
+                        else if ($(this).prop("checked") == false) {
+                            console.log("Checkbox is unchecked.");
+                        }
+                    });
+                });
+            </script>
+        </form>
     </div>
     <div class="notification is-warning cookie" id="storage-consent">
         <button class="delete"></button>
