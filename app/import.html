@@ -147,27 +147,28 @@
             </div>
         </form>
     </div>
-    <div class="notification is-warning cookie" id="storage-consent">
+    <div class="notification is-warning cookie invisible" id="storage-consent">
         <button class="delete"></button>
         We do not use cookies. <br>
         But we use your localStorage and IndexedDB to store your data. <br>
         The data is not transmitted outside your browser/app unless you do. <br>
         By clicking <code>I agree</code> or <code>closing this notification</code> <br>you agree to our <a
-            href="privacy.html" target="_blank" rel="noopener noreferrer" class="is-link"> Privacy Policy</a> and <a
-            href="privacy.html#cookieTech" target="_blank" rel="noopener noreferrer" class="is-link">Cookie Policy</a>.
+            href="privacy.html" target="_blank" rel="noopener noreferrer" class="is-link"> Privacy Policy</a>
+        and <a href="privacy.html#cookieTech" target="_blank" rel="noopener noreferrer" class="is-link">Cookie
+            Policy</a>.
         <br>
         <hr>
         <button class="button is-primary" onclick="agreed();">I agree</button>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem("StorageConsent") == "Allowed") {
+            if (localStorage.getItem("StorageConsent") != "Allowed") {
                 var consent = document.getElementById("storage-consent");
-                consent.classList.add("invisible")
+                consent.classList.remove("invisible")
             }
         });
         function agreed() {
-            if (localStorage.getItem("StorageConsent") == null) {
+            if (localStorage.getItem("StorageConsent") != "Allowed") {
                 localStorage.setItem("StorageConsent", "Allowed");
             }
             var consent = document.getElementById("storage-consent");
@@ -179,7 +180,7 @@
                 const $notification = $delete.parentNode;
 
                 $delete.addEventListener('click', () => {
-                    if (localStorage.getItem("StorageConsent") == null) {
+                    if (localStorage.getItem("StorageConsent") != "Allowed") {
                         localStorage.setItem("StorageConsent", "Allowed");
                     }
                     $notification.parentNode.removeChild($notification);
