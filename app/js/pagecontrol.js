@@ -12,3 +12,30 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+var db = new Dexie("osmata-store");
+db.version(1).stores({
+  Osmations: `
+  name,
+  url,
+  category
+  `,
+});
+
+function osmate(name, url, category = []) {
+  db.Osmations.bulkPut([{ name, url, category }]);
+}
+
+function getOsmations() {
+  return db.Osmations.toArray();
+}
+
+function closeDB() {
+  db.close();
+}
+
+function deleteDB() {
+  db.delete();
+  var notifier = document.getElementById("NotifyDel");
+  notifier.classList.remove("invisible");
+}

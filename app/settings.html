@@ -28,6 +28,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
+    <script src="js/pagecontrol.js"></script>
 </head>
 
 <body>
@@ -131,10 +133,13 @@
     <!-- Nav bar done!-->
     <!-- Next comes the body.-->
     <div class="column block is-grouped">
-        <button class="button is-danger">
+        <button class="button is-danger" onclick="deleteDB()">
             Delete all saved records
         </button>
-        <button class="button is-info">Report Error</button>
+
+        <button class="button is-info" onclick="window.open('https://github.com/aerocyber/osmata/issues')">Report
+            Error</button>
+        <p class="helper is-success invisible" id="NotifyDel">Deleted all records!</p>
     </div>
     <div class="notification is-warning cookie invisible" id="storage-consent">
         <button class="delete"></button>
@@ -176,6 +181,8 @@
                 });
             });
         });
+
+
     </script>
 </body>
 
