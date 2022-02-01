@@ -27,6 +27,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+        integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/dexie.min.js"></script>
+    <script src="js/osmata.js"></script>
+    <script src="js/pagecontrol.js"></script>
 </head>
 
 <body>
@@ -134,7 +140,7 @@
             <div class="field">
                 <span class="label">Name assigned to the url</span>
                 <div class="control">
-                    <input class="input" type="text" placeholder="e.g DuckDuckGo">
+                    <input class="input" id="nameOsmate" type="text" placeholder="e.g DuckDuckGo">
                 </div>
             </div>
 
@@ -154,13 +160,13 @@
             </div>
             <div class="field">
                 <div class="control">
-                    <button class="button is-success">
+                    <button class="button is-success" onclick="OsmateTry()">
                         <span class="icon">
                             <ion-icon name="checkmark-outline"></ion-icon>
                         </span> &nbsp;Add Osmation</button>
-                    <button class="button is-danger">Cancel</button>
                 </div>
             </div>
+            <div class="block" id="Response"></div>
             <div class="notification is-warning cookie invisible" id="storage-consent">
                 <button class="delete"></button>
                 We do not use cookies. <br>
@@ -172,7 +178,7 @@
                     Policy</a>.
                 <br>
                 <hr>
-                <button class="button is-primary" onclick="agreed();">I agree</button>
+                <button class="button is-primary" onclick="agreed()">I agree</button>
             </div>
             <script>
                 document.addEventListener('DOMContentLoaded', () => {

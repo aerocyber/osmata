@@ -16,14 +16,13 @@
 var db = new Dexie("osmata-store");
 db.version(1).stores({
   Osmations: `
-  name,
-  url,
-  category
+  id,
+  json_item
   `,
 });
 
-function osmate(name, url, category = []) {
-  db.Osmations.bulkPut([{ name, url, category }]);
+function osmate(id, json_item) {
+  db.Osmations.bulkPut([{ id, json_item }]);
 }
 
 function getOsmations() {
@@ -38,4 +37,32 @@ function deleteDB() {
   db.delete();
   var notifier = document.getElementById("NotifyDel");
   notifier.classList.remove("invisible");
+  db.close();
+}
+
+function OsmateTry() {
+  var db_ = getOsmations();
+  var inp_name = document.getElementById("nameOsmate").value;
+  var inp_URL = document.getElementById("nameURL").value;
+  var inp_category = document.getElementById("nameCategory").value;
+  var category_ = inp_category.split(" ");
+  var return_code = add(inp_name, inp_URL, db_);
+  var fail = true;
+  if (return_code.Code.Status == "Error") {
+    var _msg = Status.Code.Type + ": " + Status.Code.On;
+  } else {
+    var _msg = Status.Code.Type + ": " + Status.Code.On;
+    var id = db_[id];
+    id += 1;
+    osmate();
+    fail = false;
+  }
+  var _item = document.getElementById("Response");
+  if (fail === true) {
+    _item.innerHTML = '<p class="is-danger">' + _msg + "</p>";
+  } else {
+    _item.innerHTML = '<p class="is-success">' + _msg + "</p>";
+  }
+  console.log("Triggered!");
+  console.log(getOsmations());
 }
