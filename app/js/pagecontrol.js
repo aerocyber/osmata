@@ -13,56 +13,111 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-var db = new Dexie("osmata-store");
-db.version(1).stores({
-  Osmations: `
-  id,
-  json_item
-  `,
-});
+async function insertData(Name, Url, Categories = []) {
+  /**
+   * Update or insert data.
+   * If data is present, update it.
+   * If data is absent, insert it.
+   * Name: String: Name given to the Osmation.
+   * Url: String: Url of the Osmation.
+   * Categories: Array: Categories associated with the URL.
+   */
+  var connection = new JsStore.Connection(); // Create connection object.
+  var db_name = "Osmata"; // DB name.
+  var table = {
+    name: { primaryKey: true, autoIncrement: false, datatype: "string" },
+    url: { notNull: true, datatype: "string" },
+    category: { notNull: true, datatype: "array" },
+  }; // Set up the table.
+  var db = {
+    name: db_name,
+    tables: [table],
+  }; // The DB's set up.
+  var isDBCreated = await connection.initDb(db); // Initialize the DB.
+  var value = {
+    name: Name,
+    url: Url,
+    category: Categories,
+  }; // Set up values.
 
-function osmate(id, json_item) {
-  db.Osmations.bulkPut([{ id, json_item }]);
+  var insertNo = connection.insert({
+    into: db_name,
+    upsert: true, // Allow updating of value.
+    values: [value],
+  });
 }
 
-function getOsmations() {
-  return db.Osmations.toArray();
+async function getDataByName(Name) {
+  /**
+   * Get data based on name.
+   * Name: String: Name to be searched for.
+   */
+  var connection = new JsStore.Connection(); // Create connection object.
+  var db_name = "Osmata"; // DB name.
+  var table = {
+    name: { primaryKey: true, autoIncrement: false, datatype: "string" },
+    url: { notNull: true, datatype: "string" },
+    category: { notNull: true, datatype: "array" },
+  }; // Set up the table.
+  var db = {
+    name: db_name,
+    tables: [table],
+  }; // The DB's set up.
+  var isDBCreated = await connection.initDb(db); // Initialize the DB.
+  var results = await connection.select({
+    from: db_name,
+    where: {
+      name: Name,
+    },
+  });
+  return results;
 }
 
-function closeDB() {
-  db.close();
+async function getData(Name) {
+  /**
+   * Get all data.
+   * Name: String: Name to be searched for.
+   */
+  var connection = new JsStore.Connection(); // Create connection object.
+  var db_name = "Osmata"; // DB name.
+  var table = {
+    name: { primaryKey: true, autoIncrement: false, datatype: "string" },
+    url: { notNull: true, datatype: "string" },
+    category: { notNull: true, datatype: "array" },
+  }; // Set up the table.
+  var db = {
+    name: db_name,
+    tables: [table],
+  }; // The DB's set up.
+  var isDBCreated = await connection.initDb(db); // Initialize the DB.
+  var results = await connection.select({
+    from: db_name,
+  });
+  return results;
 }
 
-function deleteDB() {
-  db.delete();
-  var notifier = document.getElementById("NotifyDel");
-  notifier.classList.remove("invisible");
-  db.close();
-}
-
-function OsmateTry() {
-  var db_ = getOsmations();
-  var inp_name = document.getElementById("nameOsmate").value;
-  var inp_URL = document.getElementById("nameURL").value;
-  var inp_category = document.getElementById("nameCategory").value;
-  var category_ = inp_category.split(" ");
-  var return_code = add(inp_name, inp_URL, db_);
-  var fail = true;
-  if (return_code.Code.Status == "Error") {
-    var _msg = Status.Code.Type + ": " + Status.Code.On;
-  } else {
-    var _msg = Status.Code.Type + ": " + Status.Code.On;
-    var id = db_[id];
-    id += 1;
-    osmate();
-    fail = false;
-  }
-  var _item = document.getElementById("Response");
-  if (fail === true) {
-    _item.innerHTML = '<p class="is-danger">' + _msg + "</p>";
-  } else {
-    _item.innerHTML = '<p class="is-success">' + _msg + "</p>";
-  }
-  console.log("Triggered!");
-  console.log(getOsmations());
+async function DeleteByName(Name) {
+  /**
+   * Delete data based on name.
+   * Name: String: Name to be searched for and hence deleted.
+   */
+  var connection = new JsStore.Connection(); // Create connection object.
+  var db_name = "Osmata"; // DB name.
+  var table = {
+    name: { primaryKey: true, autoIncrement: false, datatype: "string" },
+    url: { notNull: true, datatype: "string" },
+    category: { notNull: true, datatype: "array" },
+  }; // Set up the table.
+  var db = {
+    name: db_name,
+    tables: [table],
+  }; // The DB's set up.
+  var isDBCreated = await connection.initDb(db); // Initialize the DB.
+  var rowsDeleted = await connection.remove({
+    from: db_name,
+    where: {
+      name: Name,
+    },
+  });
+  return rowsDeleted;
 }

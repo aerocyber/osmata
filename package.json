@@ -1,0 +1,19 @@
+{
+  "name": "osmata",
+  "version": "1.0.0",
+  "description": "An open-source bookmark manager.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aerocyber/osmata.git"
+  },
+  "author": "aerocyber",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/aerocyber/osmata/issues"
+  },
+  "homepage": "https://github.com/aerocyber/osmata#readme"
+}

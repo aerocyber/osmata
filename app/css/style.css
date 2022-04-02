@@ -15,14 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-.cookie {
-  position: absolute !important;
-  bottom: 0 !important;
-}
-
-.invisible {
-  visibility: hidden;
-}
 
 html::-webkit-scrollbar {
   width: 10px;
