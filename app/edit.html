@@ -66,51 +66,43 @@
             </div>
         </div>
         <!-- Navigation done!-->
-        <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
-            <div>
-                <a href="add.html" class="uk-text-decoration-none">
-                    <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light">
-                        <h3 class="uk-card-title">
-                            <i uk-icon="icon: plus-circle; ratio: 5"></i>
-                        </h3>
-                        <p>Add an Osmation</p>
-                    </div>
-                </a>
-            </div>
-            <div>
-                <a href="edit.html" class="uk-text-decoration-none">
-                    <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light">
-                        <h3 class="uk-card-title">
-                            <i uk-icon="icon: pencil; ratio: 5"></i>
-                        </h3>
-                        <p>Edit an Osmation</p>
-                    </div>
-                </a>
-            </div>
-            <div>
-                <a href="delete.html" class="uk-text-decoration-none">
-                    <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light">
-                        <h3 class="uk-card-title">
-                            <i uk-icon="icon: trash; ratio: 5"></i>
-                        </h3>
-                        <p>Delete an Osmation</p>
-                    </div>
-                </a>
-            </div>
-            <div>
-                <a href="view.html" class="uk-text-decoration-none">
-                    <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light">
-                        <h3 class="uk-card-title">
-                            <i uk-icon="icon: album; ratio: 5"></i>
-                        </h3>
-                        <p>View Osmations</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
+        <form>
+            <fieldset class="uk-fieldset">
 
+                <legend class="uk-legend uk-form-small">Edit</legend>
 
+                <p>Select item to be edited:</p>
+                <div class="uk-margin">
+                    <select class="uk-select uk-form-small">
+                        <option>Site Name 1</option>
+                        <option>Site Name 2</option>
+                    </select>
+                </div>
+                <div class="uk-margin">
+                    <input class="uk-input uk-form-small" type="text" placeholder="New Name of Osmation.">
+                </div>
+
+                <div class="uk-margin">
+                    <input class="uk-input uk-form-small" type="text" placeholder="New URL of Osmation.">
+                </div>
+
+                <div class="uk-margin">
+                    <textarea class="uk-textarea uk-form-small" rows="5"
+                        placeholder="Type in categories separated by commas"></textarea>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-success uk-form-small">
+                        <label class="uk-label uk-form-small">
+                            Tip
+                        </label>
+                        Leave value(s) empty to use previous values!
+                    </label>
+                </div>
+                <button class="uk-button uk-button-default uk-text-danger"><i uk-icon="check"></i>&nbsp; Edit</button>
+                <button class="uk-button uk-button-default uk-text-warning"><i uk-icon="close"></i>&nbsp;
+                    Cancel</button>
+            </fieldset>
+        </form>
 </body>
 
 </html>

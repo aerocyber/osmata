@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osmata</title>
+    <link rel="stylesheet" href="css/uikit.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/dexie.min.js"></script>
+    <script src="js/osmata.js"></script>
+    <script src="js/pagecontrol.js"></script>
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+</head>
+
+<body class="uk-align-center">
+    <div class="uk-container">
+
+        <!-- Navigation Start-->
+        <nav class="uk-navbar-container uk-margin" uk-navbar>
+            <div class="uk-navbar-center">
+
+                <div class="uk-navbar-left" uk-toggle="target: #nav">
+                    <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"></a>
+                </div>
+                <a class="uk-navbar-item uk-logo" target="_blank" href="https://aerocyber.github.io/osmata">Osmata</a>
+
+            </div>
+        </nav>
+        <div id="nav" uk-offcanvas="overlay: true">
+            <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+                <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+                    <li class="uk-active"><a href="index.html">
+                            <i uk-icon="home"></i>&nbsp; Home
+                        </a></li>
+                    <li class="uk-parent"><a href="add.html">
+                            <i uk-icon="plus-circle"></i>&nbsp;Add Osmation
+                        </a></li>
+                    <li class="uk-parent"><a href="edit.html">
+                            <i uk-icon="pencil"></i>&nbsp; Edit Osmation
+                        </a></li>
+                    <li class="uk-parent"><a href="delete.html">
+                            <i uk-icon="trash"></i>&nbsp; Delete Osmation
+                        </a></li>
+                    <li class="ukk-parent"><a href="view.html">
+                            <i uk-icon="album"></i>&nbsp; View Osmations
+                        </a>
+                    </li>
+                    <li class="uk-parent"><a href="settings.html">
+                            <i uk-icon="settings"></i>&nbsp; Settings
+                        </a></li>
+                    <li class="uk-parent"><a href="about.html">
+                            <i uk-icon="info"></i>&nbsp; About
+                        </a></li>
+                    <li class="uk-parent"><a href="legal.html">
+                            <i uk-icon="file-text"></i>&nbsp; Legal stuff
+                        </a></li>
+                    <li class="uk-parent"><a href="credits.html">
+                            <i uk-icon="heart"></i>&nbsp; Credits
+                        </a></li>
+                </ul>
+
+            </div>
+        </div>
+        <!-- Navigation done!-->
+        <article class="uk-article">
+
+            <h1 class="uk-article-title">Third party libraries</h1>
+            <p>Osmata project is possible thanks to a lot of libraries. The following are most, if not all, of the
+                libraries used by Osmata. Click to get the License associated with the library!</p>
+            <p>
+            <ul class="uk-list uk-list-bullet">
+                <li><a class="uk-text-decoration-none" href="#ui-kit" uk-toggle>UIKit</a>
+                    <div id="ui-kit" uk-modal>
+                        <div class="uk-modal-dialog">
+
+                            <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                            <div class="uk-modal-header">
+                                <h2 class="uk-modal-title">License</h2>
+                            </div>
+
+                            <div class="uk-modal-body" uk-overflow-auto>
+
+                                <p>Copyright (c) 2013-2020 YOOtheme GmbH, getuikit.com <br>
+                                    <br>
+                                    Permission is hereby granted, free of charge, to any person obtaining a copy of this
+                                    software and associated
+                                    documentation files (the "Software"), to deal in the Software without restriction,
+                                    including without limitation the
+                                    rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                    copies of the Software, and to permit
+                                    persons to whom the Software is furnished to do so, subject to the following
+                                    conditions:
+                                    <br>
+                                    The above copyright notice and this permission notice shall be included in all
+                                    copies or substantial portions of the
+                                    Software.
+                                    <br>
+                                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+                                    INCLUDING BUT NOT LIMITED TO THE
+                                    WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+                                    IN NO EVENT SHALL THE AUTHORS OR
+                                    COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+                                    ACTION OF CONTRACT, TORT OR
+                                    OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+                                    OTHER DEALINGS IN THE SOFTWARE.
+                                </p>
+
+                            </div>
+
+                            <div class="uk-modal-footer uk-text-right">
+                                <a href="https://getuikit.com/" target="_blank" class="uk-text-decoration-none">
+                                    <button class="uk-button uk-button-default" type="button"><i
+                                            uk-icon="world"></i>&nbsp;
+                                        Visit Website</button></a>
+                                <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-text-decoration-none" href="#js-store" uk-toggle>JS-Store</a>
+                    <div id="js-store" uk-modal>
+                        <div class="uk-modal-dialog">
+
+                            <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                            <div class="uk-modal-header">
+                                <h2 class="uk-modal-title">License</h2>
+                            </div>
+
+                            <div class="uk-modal-body" uk-overflow-auto>
+
+                                <p>The MIT License (MIT) <br>
+                                    <br>
+                                    Copyright (c) Ujjwal Gupta <br>
+                                    <br>
+                                    All rights reserved. <br>
+                                    <br>
+                                    Permission is hereby granted, free of charge, to any person obtaining a copy
+                                    of this software and associated documentation files (the "Software"), to deal
+                                    in the Software without restriction, including without limitation the rights
+                                    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                    copies of the Software, and to permit persons to whom the Software is
+                                    furnished to do so, subject to the following conditions:
+                                    <br>
+                                    The above copyright notice and this permission notice shall be included in all
+                                    copies or substantial portions of the Software.
+                                    <br>
+                                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                    SOFTWARE.
+                                </p>
+
+                            </div>
+
+                            <div class="uk-modal-footer uk-text-right">
+                                <a href="https://jsstore.net/" target="_blank" class="uk-text-decoration-none">
+                                    <button class="uk-button uk-button-default" type="button"><i
+                                            uk-icon="world"></i>&nbsp;
+                                        Visit Website</button></a>
+                                <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-text-decoration-none" href="#native-script" uk-toggle>NativeScript</a>
+                    <div id="native-script" uk-modal>
+                        <div class="uk-modal-dialog">
+
+                            <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                            <div class="uk-modal-header">
+                                <h2 class="uk-modal-title">License</h2>
+                            </div>
+
+                            <div class="uk-modal-body" uk-overflow-auto>
+
+                                <p>Copyright OpenJS Foundation and other contributors, https://openjsf.org <br>
+                                    <br>
+                                    Permission is hereby granted, free of charge, to any person obtaining a copy
+                                    of this software and associated documentation files (the "Software"), to deal
+                                    in the Software without restriction, including without limitation the rights
+                                    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                    copies of the Software, and to permit persons to whom the Software is
+                                    furnished to do so, subject to the following conditions:
+                                    <br>
+                                    The above copyright notice and this permission notice shall be included in
+                                    all copies or substantial portions of the Software.
+                                    <br>
+                                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                                    THE SOFTWARE.
+                                </p>
+
+                            </div>
+
+                            <div class="uk-modal-footer uk-text-right">
+                                <a href="https://nativescript.org/" target="_blank" class="uk-text-decoration-none">
+                                    <button class="uk-button uk-button-default" type="button"><i
+                                            uk-icon="world"></i>&nbsp;
+                                        Visit Website</button></a>
+                                <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </p>
+        </article>
+    </div>
+
+
+</body>
+
+</html>
