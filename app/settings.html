@@ -8,9 +8,8 @@
     <title>Osmata</title>
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/dexie.min.js"></script>
-    <script src="js/osmata.js"></script>
-    <script src="js/pagecontrol.js"></script>
+    <script src="js/jsstore.min.js"></script>
+    <script src="js/connect.js"></script>
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
 </head>
@@ -71,6 +70,16 @@
                 <button class="uk-button uk-button-danger">
                     Clear Database of ALL Osmations <br>(<i uk-icon="icon: warning"></i>&nbsp; This action is permanent.
                     Data lost is <b>NOT</b> recoverable.)
+                </button>
+            </div>
+            <div>
+                <button class="uk-button uk-button-secondary">
+                    <i uk-icon="cloud-download"></i>&nbsp; Import .omio files
+                </button>
+            </div>
+            <div>
+                <button class="uk-button uk-button-secondary">
+                    <i uk-icon="cloud-upload"></i>&nbsp; Export Osmations as .omio file.
                 </button>
             </div>
         </div>

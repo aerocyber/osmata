@@ -8,14 +8,14 @@
     <title>Osmata</title>
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/dexie.min.js"></script>
-    <script src="js/osmata.js"></script>
+    <script src="js/jsstore.min.js"></script>
+    <script src="js/connect.js"></script>
     <script src="js/pagecontrol.js"></script>
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
 </head>
 
-<body class="uk-align-center">
+<body class="uk-align-center" onload="data_reloader();">
     <div class="uk-container">
 
         <!-- Navigation Start-->
@@ -73,15 +73,15 @@
 
                 <p>Select item to be deleted:</p>
                 <div class="uk-margin">
-                    <select class="uk-select uk-form-small">
-                        <option>Option 01</option>
-                        <option>Option 02</option>
+                    <select class="uk-select uk-form-small" id="TO_DEL">
                     </select>
                 </div>
                 <p class="uk-text-danger uk-form-small">Deletion is permanent and not recoverable.</p>
 
-                <button class="uk-button uk-button-default uk-text-danger"><i uk-icon="check"></i>&nbsp; Delete</button>
-                <button class="uk-button uk-button-default uk-text-warning"><i uk-icon="close"></i>&nbsp;
+                <button class="uk-button uk-button-default uk-text-danger" onclick="delete_items()"><i
+                        uk-icon="check"></i>&nbsp; Delete</button>
+                <button class="uk-button uk-button-default uk-text-warning" onclick="history.go(-1)"><i
+                        uk-icon="close"></i>&nbsp;
                     Cancel</button>
             </fieldset>
         </form>

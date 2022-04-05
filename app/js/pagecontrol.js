@@ -13,111 +13,39 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-async function insertData(Name, Url, Categories = []) {
-  /**
-   * Update or insert data.
-   * If data is present, update it.
-   * If data is absent, insert it.
-   * Name: String: Name given to the Osmation.
-   * Url: String: Url of the Osmation.
-   * Categories: Array: Categories associated with the URL.
-   */
-  var connection = new JsStore.Connection(); // Create connection object.
-  var db_name = "Osmata"; // DB name.
-  var table = {
-    name: { primaryKey: true, autoIncrement: false, datatype: "string" },
-    url: { notNull: true, datatype: "string" },
-    category: { notNull: true, datatype: "array" },
-  }; // Set up the table.
-  var db = {
-    name: db_name,
-    tables: [table],
-  }; // The DB's set up.
-  var isDBCreated = await connection.initDb(db); // Initialize the DB.
-  var value = {
-    name: Name,
-    url: Url,
-    category: Categories,
-  }; // Set up values.
-
-  var insertNo = connection.insert({
-    into: db_name,
-    upsert: true, // Allow updating of value.
-    values: [value],
-  });
+function add_item() {
+  var _name = document.getElementById("Name").value;
+  var _url = document.getElementById("Url").value;
+  var _category = document.getElementById("Cat").value.split(",");
+  insertData(_name, _url, _category);
 }
 
-async function getDataByName(Name) {
-  /**
-   * Get data based on name.
-   * Name: String: Name to be searched for.
-   */
-  var connection = new JsStore.Connection(); // Create connection object.
-  var db_name = "Osmata"; // DB name.
-  var table = {
-    name: { primaryKey: true, autoIncrement: false, datatype: "string" },
-    url: { notNull: true, datatype: "string" },
-    category: { notNull: true, datatype: "array" },
-  }; // Set up the table.
-  var db = {
-    name: db_name,
-    tables: [table],
-  }; // The DB's set up.
-  var isDBCreated = await connection.initDb(db); // Initialize the DB.
-  var results = await connection.select({
-    from: db_name,
-    where: {
-      name: Name,
-    },
-  });
-  return results;
+function data_reloader() {
+  var dat_ = getData();
+  for (let Osmation; Osmation < dat_.length; Osmation++) {
+    document.getElementById("TO_DEL").innerHTML =
+      document.getElementById("TO_DEL").innerHTML +
+      "<option>" +
+      dat_[Osmation].Name +
+      "</option>";
+  }
 }
 
-async function getData(Name) {
-  /**
-   * Get all data.
-   * Name: String: Name to be searched for.
-   */
-  var connection = new JsStore.Connection(); // Create connection object.
-  var db_name = "Osmata"; // DB name.
-  var table = {
-    name: { primaryKey: true, autoIncrement: false, datatype: "string" },
-    url: { notNull: true, datatype: "string" },
-    category: { notNull: true, datatype: "array" },
-  }; // Set up the table.
-  var db = {
-    name: db_name,
-    tables: [table],
-  }; // The DB's set up.
-  var isDBCreated = await connection.initDb(db); // Initialize the DB.
-  var results = await connection.select({
-    from: db_name,
-  });
-  return results;
+function update_items() {
+  // Reload to make changes take effect
+  window.location.reload();
 }
 
-async function DeleteByName(Name) {
-  /**
-   * Delete data based on name.
-   * Name: String: Name to be searched for and hence deleted.
-   */
-  var connection = new JsStore.Connection(); // Create connection object.
-  var db_name = "Osmata"; // DB name.
-  var table = {
-    name: { primaryKey: true, autoIncrement: false, datatype: "string" },
-    url: { notNull: true, datatype: "string" },
-    category: { notNull: true, datatype: "array" },
-  }; // Set up the table.
-  var db = {
-    name: db_name,
-    tables: [table],
-  }; // The DB's set up.
-  var isDBCreated = await connection.initDb(db); // Initialize the DB.
-  var rowsDeleted = await connection.remove({
-    from: db_name,
-    where: {
-      name: Name,
-    },
-  });
-  return rowsDeleted;
+function delete_items() {
+  // Reload to make changes take effect
+  window.location.reload();
+}
+
+function back_home() {
+  var cur_path = window.location.pathname;
+  var base_path = "app/";
+  var to_path = "index.html";
+  cur_path = base_path + to_path;
+  window.location.href =
+    location.protocol + window.location.hostname + cur_path;
 }

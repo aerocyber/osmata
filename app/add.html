@@ -8,8 +8,8 @@
     <title>Osmata</title>
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/dexie.min.js"></script>
-    <script src="js/osmata.js"></script>
+    <script src="js/jsstore.min.js"></script>
+    <script src="js/connect.js"></script>
     <script src="js/pagecontrol.js"></script>
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
@@ -72,21 +72,23 @@
                 <legend class="uk-legend uk-form-small">Add Osmation</legend>
 
                 <div class="uk-margin">
-                    <input class="uk-input" type="text" placeholder="Name of Osmation.">
+                    <input class="uk-input" id="Name" type="text" placeholder="Name of Osmation.">
                 </div>
 
                 <div class="uk-margin">
-                    <input class="uk-input uk-form-small" type="text" placeholder="URL of Osmation.">
+                    <input class="uk-input uk-form-small" id="Url" type="url" placeholder="URL of Osmation.">
                 </div>
 
                 <div class="uk-margin">
-                    <textarea class="uk-textarea uk-form-small" rows="5"
+                    <textarea class="uk-textarea uk-form-small" id="Cat" rows="5"
                         placeholder="Type in categories separated by commas"></textarea>
                 </div>
                 <p uk-margin>
-                    <button class="uk-button uk-button-default uk-text-success"><i uk-icon="check"></i>&nbsp;
+                    <button class="uk-button uk-button-default uk-text-success" onclick="add_item();"><i
+                            uk-icon="check"></i>&nbsp;
                         Add</i></button>
-                    <button class="uk-button uk-button-default uk-text-warning"><i uk-icon="close"></i>&nbsp;
+                    <button class="uk-button uk-button-default uk-text-warning" onclick="back_home();"><i
+                            uk-icon="close"></i>&nbsp;
                         Cancel</i></button>
                 </p>
             </fieldset>
