@@ -40,12 +40,3 @@ function delete_items() {
   // Reload to make changes take effect
   window.location.reload();
 }
-
-function back_home() {
-  var cur_path = window.location.pathname;
-  var base_path = "app/";
-  var to_path = "index.html";
-  cur_path = base_path + to_path;
-  window.location.href =
-    location.protocol + window.location.hostname + cur_path;
-}
