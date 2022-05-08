@@ -1,6 +1,6 @@
 {
   "name": "osmata",
-  "version": "1.0.0",
+  "version": "1.0.0-dev0",
   "description": "An open-source bookmark manager.",
   "main": "index.js",
   "scripts": {
