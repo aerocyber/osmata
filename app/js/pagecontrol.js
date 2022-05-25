@@ -97,3 +97,47 @@ function editItem() {
   }
   insertData(name, url, category);
 }
+
+function clearDB() {
+  var data = getData();
+  for (let x; x < data.length; x++) {
+    DeleteByName(data[x].name);
+  }
+}
+
+function download(filename, data) {
+  var element = document.createElement("a");
+  element.setAttribute(
+    "href",
+    "data:text/plain;charset=utf-8," + encodeURIComponent(data)
+  );
+  element.setAttribute("download", filename);
+
+  element.style.display = "none";
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+function dwnl() {
+  var data = getData();
+  var hold = {
+    Header: {
+      "Omio Version": "2.0",
+      "Extra Data": "Extra data to be added: <dict>",
+    },
+  };
+  var exportable_data = {};
+  for (let x; x < data.length; x++) {
+    exportable_data[data[x].name] = {
+      URL: data[x].url,
+      Category: data[x].category,
+    };
+  }
+  hold["Data"] = exportable_data;
+  hold["End of Data"] = true;
+  var downloader = JSON.stringify(hold);
+  download("Osmations.omio", downloader);
+}

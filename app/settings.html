@@ -68,21 +68,21 @@
         <!-- Navigation done!-->
         <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
             <div>
-                <button class="uk-button uk-button-danger">
+                <button class="uk-button uk-button-danger" onclick="clearDB();">
                     Clear Database of ALL Osmations <br>(<i uk-icon="icon: warning"></i>&nbsp; This action is permanent.
                     Data lost is <b>NOT</b> recoverable.)
                 </button>
             </div>
             <div>
-                <button class="uk-button uk-button-secondary">
+                <button class="uk-button uk-button-secondary" onclick="dwnl();">
                     <i uk-icon="cloud-download"></i>&nbsp; Import .omio files
                 </button>
             </div>
-            <div>
+            <!-- <div>
                 <button class="uk-button uk-button-secondary">
                     <i uk-icon="cloud-upload"></i>&nbsp; Export Osmations as .omio file.
                 </button>
-            </div>
+            </div> -->
         </div>
     </div>
 
