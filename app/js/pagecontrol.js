@@ -36,13 +36,25 @@ function addItem() {
   var name = document.getElementById("Name").value;
   var url = document.getElementById("Url").value;
   var cat = document.getElementById("Cat").value.split(",");
-  insertData((Name = name), (Url = url), (Categories = cat));
+  var data = getData();
+  for (let x; x < data.length; x++) {
+    if (data[x].name == name) {
+      document.getElementById("name_err").innerHTML =
+        name + " exists in DB. Try again with different name.";
+      return;
+    } else if (data[x].url == url) {
+      document.getElementById("url_err").innerHTML =
+        url + " exists in DB. Try again with different URL.";
+      return;
+    }
+  }
+  insertData(name, url, cat);
   redirectTo("view.html");
 }
 
-function loadToDEL() {
+function loadDat(id) {
   var data = getData();
-  var target = document.getElementById("TO_DEL").innerHTML;
+  var target = document.getElementById(id).innerHTML;
   for (let x; x < data.lenth; x++) {
     target =
       target +
@@ -58,4 +70,30 @@ function deleteItems() {
   var Name = document.getElementById("TO_DEL").value;
   var _ = DeleteByName(Name);
   redirectTo("view.html");
+}
+
+function loadValue() {
+  var data = getDataByName(document.getElementById("TO_EDIT").value);
+  document.getElementById("Name").value = data[0].name;
+  document.getElementById("Url").value = data[0].url;
+  document.getElementById("Cat").value = data[0].category;
+}
+
+function editItem() {
+  var data = getData();
+  var name = document.getElementById("Name").value;
+  var url = document.getElementById("Url").value;
+  var cat = document.getElementById("Cat").value.split(",");
+  for (let x; x < data.length; x++) {
+    if (data[x].name == name) {
+      document.getElementById("name_err").innerHTML =
+        name + " exists in DB. Try again with different name.";
+      return;
+    } else if (data[x].url == url) {
+      document.getElementById("url_err").innerHTML =
+        url + " exists in DB. Try again with different URL.";
+      return;
+    }
+  }
+  insertData(name, url, category);
 }

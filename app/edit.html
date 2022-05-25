@@ -16,7 +16,7 @@
     <script src="js/uikit-icons.min.js"></script>
 </head>
 
-<body class="uk-align-center">
+<body class="uk-align-center" onload="loadEdit('TO_EDIT');">
     <div class="uk-container">
 
         <!-- Navigation Start-->
@@ -74,22 +74,24 @@
 
                 <p>Select item to be edited:</p>
                 <div class="uk-margin">
-                    <select class="uk-select uk-form-small">
-                        <option>Site Name 1</option>
-                        <option>Site Name 2</option>
+                    <select class="uk-select uk-form-small" id="TO_EDIT" onchange="loadValue();">
                     </select>
                 </div>
                 <div class="uk-margin">
-                    <input class="uk-input uk-form-small" type="text" placeholder="New Name of Osmation.">
+                    <input class="uk-input uk-form-small" type="text" placeholder="New Name of Osmation." id="Name">
                 </div>
 
+                <p class="uk-text-danger uk-form-small" id="name_err"></p>
+
                 <div class="uk-margin">
-                    <input class="uk-input uk-form-small" type="url" placeholder="New URL of Osmation.">
+                    <input class="uk-input uk-form-small" type="url" placeholder="New URL of Osmation." id="Url">
                 </div>
+
+                <p class="uk-text-danger uk-form-small" id="url_err"></p>
 
                 <div class="uk-margin">
                     <textarea class="uk-textarea uk-form-small" rows="5"
-                        placeholder="Type in categories separated by commas"></textarea>
+                        placeholder="Type in categories separated by commas" id="Cat"></textarea>
                 </div>
                 <div class="uk-margin">
                     <label class="uk-form-success uk-form-small">
@@ -99,7 +101,8 @@
                         Leave value(s) empty to use previous values!
                     </label>
                 </div>
-                <button class="uk-button uk-button-default uk-text-danger"><i uk-icon="check"></i>&nbsp; Edit</button>
+                <button class="uk-button uk-button-default uk-text-danger" onclick="editItem();"><i
+                        uk-icon="check"></i>&nbsp; Edit</button>
                 <a href="index.html" class="uk-button uk-button-default uk-text-warning"><i uk-icon="close"></i>&nbsp;
                     Cancel</a>
             </fieldset>
