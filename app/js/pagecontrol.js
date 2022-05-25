@@ -13,30 +13,13 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-function add_item() {
-  var _name = document.getElementById("Name").value;
-  var _url = document.getElementById("Url").value;
-  var _category = document.getElementById("Cat").value.split(",");
-  insertData(_name, _url, _category);
-}
-
-function data_reloader() {
-  var dat_ = getData();
-  for (let Osmation; Osmation < dat_.length; Osmation++) {
-    document.getElementById("TO_DEL").innerHTML =
-      document.getElementById("TO_DEL").innerHTML +
-      "<option>" +
-      dat_[Osmation].Name +
-      "</option>";
+function loadData() {
+  var data = getData();
+  var target = document.getElementById("view-pane").innerHTML;
+  var html = "";
+  for (let x; x < data.length; x++) {
+    html =
+      html +
+      '<div><div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light"><h3 class="uk-card-title">results[x].name</h3><p>URL: <a href="results[x].url">results[x].url</a></p><p>Categories: results[x].categories</p><p>Actions:</p></div></div>';
   }
-}
-
-function update_items() {
-  // Reload to make changes take effect
-  window.location.reload();
-}
-
-function delete_items() {
-  // Reload to make changes take effect
-  window.location.reload();
 }

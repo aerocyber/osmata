@@ -13,9 +13,10 @@
     <script src="js/connect.js"></script>
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
+    <script src="js/pagecontrol.js"></script>
 </head>
 
-<body class="uk-align-center">
+<body class="uk-align-center" onload="loadData();">
     <div class="uk-container">
 
         <!-- Navigation Start-->
@@ -66,14 +67,7 @@
             </div>
         </div>
         <!-- Navigation done!-->
-        <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
-            <div>
-                <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light">
-                    <h3 class="uk-card-title">Site name</h3>
-                    <p>URL: <a href="https://example.com">https://example.com</a></p>
-                    <p>Actions:</p>
-                </div>
-            </div>
+        <div class="uk-child-width-1-2@s uk-grid-match" uk-grid id="view-pane">
         </div>
 </body>
 
