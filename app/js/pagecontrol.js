@@ -24,9 +24,38 @@ function loadData() {
   }
 }
 
+function redirectTo(page) {
+  var page = window.location.href;
+  var pg = page.split("/");
+  _ = pg.pop();
+  pg.push(page);
+  window.location.href = pg.join("/");
+}
+
 function addItem() {
   var name = document.getElementById("Name").value;
   var url = document.getElementById("Url").value;
   var cat = document.getElementById("Cat").value.split(",");
   insertData((Name = name), (Url = url), (Categories = cat));
+  redirectTo("view.html");
+}
+
+function loadToDEL() {
+  var data = getData();
+  var target = document.getElementById("TO_DEL").innerHTML;
+  for (let x; x < data.lenth; x++) {
+    target =
+      target +
+      '<option value="' +
+      data[x].name +
+      '">' +
+      data[x].name +
+      "</option>";
+  }
+}
+
+function deleteItems() {
+  var Name = document.getElementById("TO_DEL").value;
+  var _ = DeleteByName(Name);
+  redirectTo("view.html");
 }

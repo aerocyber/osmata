@@ -17,7 +17,7 @@
 </head>
 
 <body class="uk-align-center" onload="data_reloader();">
-    <div class="uk-container">
+    <div class="uk-container" onload="loadToDEL();">
 
         <!-- Navigation Start-->
         <nav class="uk-navbar-container uk-margin" uk-navbar>
@@ -79,7 +79,7 @@
                 </div>
                 <p class="uk-text-danger uk-form-small">Deletion is permanent and not recoverable.</p>
 
-                <button class="uk-button uk-button-default uk-text-danger" onclick="delete_items()"><i
+                <button class="uk-button uk-button-default uk-text-danger" onclick="deleteItems()"><i
                         uk-icon="check"></i>&nbsp; Delete</button>
                 <a class="uk-button uk-button-default uk-text-warning" href="index.html"><i uk-icon="close"></i>&nbsp;
                     Cancel</a>
