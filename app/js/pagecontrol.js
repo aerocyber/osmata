@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 function loadData() {
-  var data = getData();
+  var data = getAllData();
   var target = document.getElementById("view-pane").innerHTML;
   var html = "";
   for (let x; x < data.length; x++) {
@@ -36,7 +36,7 @@ function addItem() {
   var name = document.getElementById("Name").value;
   var url = document.getElementById("Url").value;
   var cat = document.getElementById("Cat").value.split(",");
-  var data = getData();
+  var data = getAllData();
   for (let x; x < data.length; x++) {
     if (data[x].name == name) {
       document.getElementById("name_err").innerHTML =
@@ -53,7 +53,7 @@ function addItem() {
 }
 
 function loadDat(id) {
-  var data = getData();
+  var data = getAllData();
   var target = document.getElementById(id).innerHTML;
   for (let x; x < data.lenth; x++) {
     target =
@@ -73,14 +73,14 @@ function deleteItems() {
 }
 
 function loadValue() {
-  var data = getDataByName(document.getElementById("TO_EDIT").value);
+  var data = getByName(document.getElementById("TO_EDIT").value);
   document.getElementById("Name").value = data[0].name;
   document.getElementById("Url").value = data[0].url;
   document.getElementById("Cat").value = data[0].category;
 }
 
 function editItem() {
-  var data = getData();
+  var data = getAllData();
   var name = document.getElementById("Name").value;
   var url = document.getElementById("Url").value;
   var cat = document.getElementById("Cat").value.split(",");
@@ -99,7 +99,7 @@ function editItem() {
 }
 
 function clearDB() {
-  var data = getData();
+  var data = getAllData();
   for (let x; x < data.length; x++) {
     DeleteByName(data[x].name);
   }
@@ -122,7 +122,7 @@ function download(filename, data) {
 }
 
 function dwnl() {
-  var data = getData();
+  var data = getAllData();
   var hold = {
     Header: {
       "Omio Version": "2.0",
